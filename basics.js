@@ -1,4 +1,4 @@
-// TOPIC: CHAPTER 1
+// TOPIC: CHAPTER 1: About Linux
 
 // SUB: USES
 
@@ -63,3 +63,44 @@
 // Red Hat was equired by IBM and Red Hat Linux was abandoned and Red Hat Enterprise Linux and Fedora were formed
 // RHEL -> enterprise level
 // Fedora -> normal users
+// CentOS and Oracle Linux are build using source code of RHEL
+// Fedora focus on latest tech but lacks stability
+// Most RHEL software are first tested on Fedora 
+// along side RHEL and Fedora, Debian was also formed 
+// Debian is also highly stable
+// >130 distros are based on Debian -> Linux Mint, Elementary OS, Ubuntu, Kali
+
+// SUB: How Linux companies make money 
+
+// subscription 
+// Certifications
+// Bounty
+// Donations 
+
+// SUB: Certifications 
+
+// Red Hat Certified System Administrator (RHCSA) -> intermediate
+// Red Hat Certified Engineer (RHCE) -> Advanced
+// To get RHCE, pass RHCSA and RHCE 
+// LATER: RHCE and RHCSA Topics 
+
+
+// TOPIC: CHAPER 2: Linux Desktop   
+
+// SUB: Desktop envirnoments
+
+// most linux distros uses GNOME as linux destop envornment (to be used by normal people)  
+// older linux distro and system special linux servers don't have a desktop environment 
+// X Windows manager -> oldest linux desktop environment 
+// before terminal was used for everything 
+// X controlled hardware and window manager manged the window and applications 
+// GNOME and KDE -> powerful desktop environments 
+// LXDE and Xfce -> lightweight desktop environments 
+// can install different desktop environments and switch between them 
+// GNOME -> post popular and stable 
+// KDE -> more application, less stable then GNOME 
+// LXDE -> lighweight, fast and energy efficient
+
+// SUB: GNOME
+
+// files -> other location -> connect to server (enter ip address of machine)
