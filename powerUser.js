@@ -171,3 +171,43 @@
 
 // SUB: Metacharacters 
 
+// helps work with files more easily
+// TERM: ls a*  (files starting with a)
+// TERM: ls a*t (starting with a and enting with t)
+// TERM: ls ?????a (start with any 5 characters and ends with a)
+// TERM: ls [abw]*  (any file starting with a, b or w)
+// TERM: ls [a-d]* (any file starting with characters between a and d)
+// TERM: mail root < ~/.bashrc  ("<" -> send the content of .bashrc file to mail )
+// TERM: man chmod |  col -b > /tmp/chmod   (">" -> send the output of man page with removed bland space (col -b) to /tmp/chmod, replacing it's content)
+// ">>" -> don't replace the content 
+
+// HERE DOCUMENT
+// TERM: mail root << thetext ------------------ thetext  ("<<" -> sent the text between thetext and thetext as mail to root user)
+
+// TERM: touch index{1,2,3,4,5}  (create file index1 to index5)
+// TERM: touch {a,b,c}-{a,b,c}  (a-a, a-b, a-c..............)
+
+// SUB: Listing files/directories
+// TERM: alias ls  (check if "ls" is aliased)
+// TERM: ls -al (permission starting with "-" -> file, "d" -> directory)
+// col1 -> permissions
+// col2 -> number of hard links to that file/folder
+// col3 -> owner
+// col4 -> group with owner belongs to 
+// col5 -> size in bits
+// col6 -> last modified date
+// "s" instead of "x" in permissions -> executable by any user, but only by perticular user/group
+// drwx------t  ("t" -> at the end of directory, sets "sticky bit" -> owner of directory can allow other users to add files/directory to this direcotry, users cannot delete each other's files/folders inside this directory)
+// -rwx------+ ("+" -> some extended attribute is set on the file like "Access Control List")
+// -rwx------. ("." -> SELinux(Security Enhanced Linux) is set on file, adds "access control" to file to improve safety)
+// TERM: ls -tF  ("t" -> display in order of most recently used, "F" -> adds "/" -> directory, "*" -> executable, "@" -> symbolic link)
+// TERM: ls --hide=a* 
+// TERM: ls -ld  ("d" -> display info about folder instead of showing it's files/folders)
+
+// SUB: permissions
+
+// 9 bits assigned to a file -> -rwxrwxrwx define permission 
+// first  rwx -> owner's permission, sedond -> group's permission, thirid -> all others users 
+// TERM: chmod 755 {filename} -> (change permission of file, 7 -> owner (r -> 4, w -> 2, x -> 1 = 4+2+1), 5 -> group, 5 -> other users)
+// TERM: chmod -R 755 {folder} -> change permission of all the files in the folder
+// 
