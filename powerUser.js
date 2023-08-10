@@ -209,5 +209,40 @@
 // 9 bits assigned to a file -> -rwxrwxrwx define permission 
 // first  rwx -> owner's permission, sedond -> group's permission, thirid -> all others users 
 // TERM: chmod 755 {filename} -> (change permission of file, 7 -> owner (r -> 4, w -> 2, x -> 1 = 4+2+1), 5 -> group, 5 -> other users)
-// TERM: chmod -R 755 {folder} -> change permission of all the files in the folder
+// TERM: chmod -R 755 {folder} -> change permission of all the files in the folders
+// TERM: chmod a-w {filename} -> remove "-" write "w" permission from all "a" users (u -> current user, g -> group, o -> others)
+// TERM: chmod go-rwx
+// -rw-rw-r-. (default file permission)
+// rwxrwxr-x (default folder permission)
+// TERM: umask  (see default permission) 
+// TERM: umask 022 (change permission temprorly)
+// .bashrc -> umask 022 (change permission permanently)
+
+// SUB: Changing ownerships
+
+// can only do as a root user
+// TERM: chown sachin /home/joe/filename.js (change ownership to "sachin")
+// TERM: chown sachin:groupName /home/joe/filename.js (change ownership and group of file/folder)
+// TERM: chown -R sachin:groupName /media/driveName  (give full ownership of mounted drive to sachin and groupName group )
+
+// SUB: Moving, copying, removing
+
+// TERM: mv fileName1 fileName2 (move content of file1 to other file2)
+// content of fileName2 is overridden
+// TERM: mv -i fileName1 fileName2 (don't replace)
+// TERM: cp -r folder1 folder2 (r -> recursively, to copy all files)
+// by default in most linux terminals mv -i or cp -i or rm -i is aliased with mv and cp and rm 
+// TERM: rm * (remove all files in folder)
+// TERM: rm -r folder (remove no empty directory)
+// TERM: rmdir folder (remove empty directoroy)
+// TERM: rm -rf (f -> don't ask before deleting)
+// TERM: \rm * (run "rm" without alias "rm -i")
+// TERM: \mv -b file1 file2 (b -> keep a backup of file2 content coz mv unaliased will replace content) 
+
+// SUB: finding files
+
+// locate -> find files faster than "find" beacuse it search "database" instead of "filesystem"
+// "locate" cannot find files added after database was updated
+// database is updated once a day in linux automatically
+// TERM: updatedb (update db manually)
 // 
