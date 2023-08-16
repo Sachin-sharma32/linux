@@ -245,4 +245,70 @@
 // "locate" cannot find files added after database was updated
 // database is updated once a day in linux automatically
 // TERM: updatedb (update db manually)
-// 
+// file of attached drives and temprory files are stored in filesystem 
+// TERM: locate .bashrc (when used as root user it finds all files in all users directories)
+// TERM: locate -i .bashrc (-i -> find regardless of case)
+// "find" is more dynamic than "locate", can search by name, owner, date etc 
+// with "find" the filesystem is updated insantly when you create or work on a file so get the latest files as well
+// TERM: find /etc -ls (find all files under /etc directory, -ls -> give all details of found files)
+// TERM: find /etc 2> /dev/null  (2> -> direct the error to /dev/null file coz user might not have access to some files in /etc so to redirect errors from output)
+// TERM: find /etc -name "*.js" (find files by name or "-iname")
+// TERM: find /etc -size +10M -size -1G
+// TERM: find /home -user sachin (search by ownername)
+// TERM: find /home \(-user sachin -or -user nile \) (-or -> search either)
+// TERM: find /home -group group1 (search by groupname) 
+// TERM: find /home -not -user sachin (-not -> search all files in /home whose owner is not sachin)
+// TERM: find /home -perm -755 (search by permission of file, -755 -> "-" means search exact)
+// TERM: find /home -perm \755 ("\" -> either owner or group or others shoiuld match)
+// TERM: find /home -mmin -10 (find files whose content changed in last 10 min)
+// TERM: find /home -ctime -3 (find files whose permission or ownership changed in last 3 days)
+// TERM: find /home -atime +300 (find files which are not accessed in last 300 days)
+// "-mmin" -> minute, "-mtime" -> days
+// "-or", "-not" can also be used in all these examples
+// TERM: find /home -user sachin -and -size +10M ("-and")
+// with "find" we can run commands on found files using "-exec" and "-ok"
+// "-ok" ask for conformation on all files "-exec" don't
+// TERM: find /home -exec "I found {}" \;  ({} -> name of files, \; -> to end the command)
+// TERM: find /home -exec du {} \; | sort  (du -> list size of file)
+// "grep" -> search files by providing keyword which the filename contains
+// TERM: grep -i desktop /home (-i -> case insensitive search, search "desktop" containg files in their name or content in /home directory) 
+// TERM: grep -vi desktop /home (-v -> search file which don't contain)
+// TERM: grep -ri desktop /home (-r -> list directories that contain)
+// TERM: grep -ri --color root /etc (--color -> highlight "root")
+
+// TOPIC: Processes
+
+// Multitasking -> multiple programs running in background
+// Process -> instance of running program 
+// process is identified by process ID (PID)
+// each process is accociated with particular user and group
+
+// TERM: ps u (or "-u" -> show info about process)
+// TTY -> terminal used
+// STAT -> state of process, "R" -> running, "S" -> sleeping, "+" -> foreground
+// VSZ -> size of memory allocated to process
+// RSS -> size of memory actually occupied by process  
+// START -> when the process started
+// TIME -> total time used
+// TERM: ps au (a -> process of all users)
+// TERM: ps -eo pid,user,uid --sort=-vsz (-e -> all runnning process, -o -> show only specific info)
+
+// "top" -> visual way of showing processes
+// you should be root user to kill process of any user
+// press "m" -> sort by memory, "p" -> sort by CPU, "1" -> show CPU usage of all CPUs (if you have), "r" -> reverse sort order, "u" -> enter username
+// "r" -> type process id to renice(change priority) the processes, then type between -19 and 20 to change priority, only root user can provide negetive priority
+// "k" -> kill process
+// "System monitor" in gnome can also be used to manage processes
+// "End" process -> terminate process cleanly
+// "kill" -> terminate process even if it cannot be done cleanly
+
+// TERM: find /root & (& -> run command in background to clear the terminal)
+// it gives back [1] -> process number, 1352 -> PID
+// TERM: jobs (show background processes) 
+// [1]+ ("+" -> most recently added to bg)
+// [1]- ('-' -> added to background just before the more recent process added to bg)
+// TERM: jobs -l (-l -> show PID also)
+// TERM: fg %1 (bring process number 1 to foreground)
+// TERM: fg % (% -> most recent job)
+// TERM: bg %1 (start a stopped process in background)
+
