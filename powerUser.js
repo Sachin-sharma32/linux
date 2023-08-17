@@ -312,3 +312,41 @@
 // TERM: fg % (% -> most recent job)
 // TERM: bg %1 (start a stopped process in background)
 
+// SUB: killing process
+
+// Signels -> SIGTERM (15) (kill process cleanly), SIGKILL (9) (kill process immediately cleanly or not), SIGHUP (1) (process to reread it's config file), SIGSTOP (17,19,23), SIGCONT (19,18, 25)
+// can use signal name "SIGTERM" or signal number "15"
+// TERM: kill -SIGKILL {PID} 
+// the default is "SIGTERM"
+// TERM: killall -15 testme ("killall" -> kill process by "name" instead of "PID")
+
+// every process has a "nice" value between -20 and 19 to determine priority of process
+// default is 0
+// more the value the more CPU attention it gets
+// normal user can only give between 0 and 19
+// normal user can only increase the nice value 
+// normal user can only set nice value on it's own processes
+// TERM: nice -n +5 updatedb &  (set nice value of +5)
+// TERM: renice -n +10 {PID} ("renice" -> change nice value of "running" proccess)
+
+// TOPIC: Shell scripting
+
+// shell scripts -> group of command contained in a file which we can run in one go
+// this is how linux system works to initilize hardward and softwares on startup
+// modern tools includes Ansible and Kubernetes
+
+// NAME="sachin" (variable, no space between variable, = and valeu, variable = number,text,_)
+// PI=3.14
+// MYDATE=$(date) ("$()" -> use output of command as a value)
+// NAME=\$HOME (\ or '' -> to literally show $HOME instead of HOME command's value)
+// NAME="$HOME * `date`" (using "" -> $,`` and ! are treated specially but "*"(current file) is treated litrally i.e. "*")
+// output -> NAME=/home/etc * 23/23/15
+
+// values $0 --- $n are special 
+// if the script "myscript" contains :  
+// echo "The first argument is $1 and second argument is $2"
+// if we run the command with foo and bar
+// TERM:  myscript foo bar
+// RESULT -> Thee first argument is foo and second argument is bar
+
+
