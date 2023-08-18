@@ -43,5 +43,30 @@
 // most config files start with "."
 // inside $HOME directory -> config files related to how user account behaves
 // inside /etc -> basic config files
-// .
 
+// "systemd" journal -> linux systems tracks themselves and keep error messages and log files in this jounal
+// TERM: journalctl -> view systemd journal
+// TERM: journalctl --list-boots (give boot IDs when system were started)
+// TERM: journalctl -b {bootID} (info about particular boot)
+// TERM: journalctl -k (error/logs from kernal)
+// TERM: journalctl _SYSTEMD_UNIT=sshd.service  (about particular service)
+// TERM: journalctl -a -f ("-f" -> show messages live, "-a" -> show all info about message)
+// messages are generally stored in "/var/log" directory
+
+// can use multiple admin accounts but the shell should be "/bin/bash"
+
+// linux can automatically manage hardware but we can also manage them manually
+// when linux boots, kernel detectes
+// when linux boots, kernel detectes the hardware and loads the drives to run those devices
+// TERM: dmesg (see what hardware were detected by kernel at boot time and find which one failed)
+// "journalctl" can also be used to show log message from particular boot instance
+// TERM: lsusb (info about connected usb devices to system)
+// TERM: lsusb -v  (more info)
+// TERM: lscpu (detials about processor)
+
+// sometime you make need to load the hardware manually
+// TERM: lsmod (which modules are currently loaded in your kernel)
+// TERM: modeprobe {modulesName}  (to manually load a module, after restart the modules is remove and you have to load it again unless you define it in a start script when the system boots)
+// TERM: rmmode {moduleName}  (remove a module)
+
+// TOPIC: Installing Linux
