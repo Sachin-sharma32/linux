@@ -344,9 +344,110 @@
 
 // values $0 --- $n are special 
 // if the script "myscript" contains :  
-// echo "The first argument is $1 and second argument is $2"
+// echo "The first argument is $1 and second argument is $2, $0, $#, $@"
 // if we run the command with foo and bar
 // TERM:  myscript foo bar
-// RESULT -> Thee first argument is foo and second argument is bar
+// RESULT -> Thee first argument is foo and second argument is bar, /path/to/myscript, {how many argument were given -> 2}, {all arguments -> foo bar} 
+
+// prompting user (inside script file, using "read", word1,word2,word3 are variables): 
+// read -p "Type three words: " word1 word2 word3
+// echo "$word1 $word2 $word3"
+
+// SUB: parameter expression:
+
+// THIS="Hello"
+// THAT=${THIS:-"HI"}  (set value of "THAT" as "HI" if "THIS" don't have any value)
+// MYFILENAME=/home/digby/myfile.txt (Sets the value of MYFILENAME)
+//FILE=${MYFILENAME##*/} (FILE becomes myfile.txt)
+//DIR=${MYFILENAME%/*} (DIR becomes /home/digby)
+//NAME=${FILE%.*} (NAME becomes myfile)
+//EXTENSION=${FILE##*.} (EXTENSION becomes txt)
+
+// SUB: mathematical operations using "let", "expr" "bc"
+
+// "let" -> should not be any space 
+// "expr" -> should be space
+// "bc" -> doesn't matter
+// NUM=10
+// let RESULT=$NUM/10
+// RESULT=`expr $NUM / 10`
+// RESULT=`$NUM / 10 | bc`
+
+// SUB: Increment $(()): 
+
+// I=0
+// echo `Hello $((I++)), $((++I))`
+
+// SUB: Conditional
+
+// I=1
+// if [ $I -eq 1 ] ; then  (can also use "=" or "!=") 
+// echo "HELLO"
+// else
+// echo "BYE"
+// fi  (end of if/else block)
+
+// FILENAME="$HOME"
+// if [ -f "$FILENAME"] ; then
+// echo "It is a file"
+// elif [ -d "$FILENAME"] ; then
+// echo "It is a directory"
+// else
+// echo "It is nither"
+
+// TERM: help test ( to see more options like -f and -d)
+
+// [ -d "$FILENAME" ] || mkdir "$FILENAME"  ("||" -> if first statement is false then go to next, opposite is "&&") 
+// [ -d "$FILENAME" ] && echo "Hello" || echo "Bye"
+
+// SUB: case 
+
+// DAY="Mon"
+// case "DAY" in 
+// "Mon")
+//      echo "Hello Monday"
+//      ;;
+// "TUE" | "Wed")
+//      echo "Horrible"
+//      ;;
+// *)
+//      echo "Other"
+//      ;;
+// esca   (end the case)
 
 
+// SUB: for,while,until loop
+
+// for FILE in `/desktop` 
+// do 
+//   echo "$FILE is good"
+// done
+
+// while [ $N -lt 10 ] ; do  (";" -> end of line)
+// echo $N 
+// N=$N+1
+// done
+
+// Syntax of "until" is the same
+
+
+// grep /home /desktop/git  (find lines containing "home" in "vim" file)
+// env | grep ^HO  (env variables starting with "HO")
+// grep /home /desktop/git | cut -d':' -f6 -   ("cut" -> extract, -f6 -> from the sixth ":", "-" -> show the output )
+
+// FOO="HELLO WORLD"
+// echo $FOO | tr [A-Z] [a-z]   ("tr" -> replace)
+
+// for file in * ; do
+// f = `echo $file | tr [:blank:] [_]`    (replace black space with "_" in filenames)
+// [ "$file" = "$f"] | mv -i "$file" "$f"  (move content of file in f)
+// done
+
+// SUB: sed editor 
+
+// similar to grep
+// sed -n '/home/p' /desktop/git  ("/p" -> print)
+// sed "s/home/homie/g" /desktop/git  ("s/" -> replace, "/g" -> globally in that file)
+// sed "s/*$//" /desktop/git   ("*$" -> blank space at end of each line, "/" -> replace with empty)
+
+// FIX: write some shell scripts
